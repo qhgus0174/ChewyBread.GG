@@ -4,7 +4,7 @@ import axios from 'axios';
 function App() {
     useEffect(() => {
         axios
-            .get('/userInfo/getSummonerId')
+            .get(`/userInfo/getSummonerId/쫀득한빵`)
             .then(res => {
                 console.log(res);
             })

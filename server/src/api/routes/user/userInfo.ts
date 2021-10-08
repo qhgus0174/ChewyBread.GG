@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/getSummonerId/:name', async (req: Request, res: Response, next: NextFunction) => {
     const abd = await reqSender({
-        url: `/lol/summoner/v4/summoners/by-name/${req.params.name}`,
+        url: `/lol/summoner/v4/summoners/by-name/${encodeURIComponent(req.params.name)}`,
         method: 'GET',
     });
     res.send(abd);
