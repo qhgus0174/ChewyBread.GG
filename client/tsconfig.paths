@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "jsxImportSource": "@emotion/react",
+
+        "paths": {
+            "~styles/*": ["styles/*"],
+            "~hooks/*": ["hooks/*"],
+            "~routes/*": ["routes/*"]
+        },
+
+        "removeComments": true,
+        "target": "es6",
+        "sourceMap": true,
+
+        "strict": true,
+
+        "noEmitOnError": true,
+        "skipLibCheck": true,
+
+        "jsx": "react-jsx",
+        "module": "commonjs",
+        "outDir": "./dist",
+
+        "esModuleInterop": true,
+
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+
+        "noEmit": true
+    }
+}
