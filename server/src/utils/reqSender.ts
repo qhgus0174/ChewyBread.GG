@@ -1,12 +1,12 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import config from '../config';
 
-const reqSender = axios.create({
+const reqSender: AxiosInstance = axios.create({
     baseURL: config.riotBaseUrl,
 });
 
 reqSender.interceptors.request.use(
-    (axiosReqConfig: AxiosRequestConfig | any) => {
+    (axiosReqConfig: AxiosRequestConfig) => {
         try {
             axiosReqConfig.headers['X-Riot-Token'] = config.riotApiKey;
 
@@ -22,8 +22,7 @@ reqSender.interceptors.request.use(
 
 reqSender.interceptors.response.use(
     (response: AxiosResponse<any>) => {
-        const { data } = response;
-        return data;
+        return response;
     },
     (error: AxiosError<any>) => {
         return Promise.reject(error);
