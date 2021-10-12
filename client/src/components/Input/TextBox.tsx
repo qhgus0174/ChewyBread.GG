@@ -10,7 +10,7 @@ const TextBox = ({ width, type = 'text', ...rest }: ITextProps) => {
 };
 
 const CustomInput = styled.input<ITextProps>`
-    width: ${props => (props.width ? props.width : '100')}%;
+    width: calc(${props => (props.width ? props.width : '100')}% - 1em);
     padding: 0.5em;
     margin: 0.5em;
     box-sizing: border-box;
