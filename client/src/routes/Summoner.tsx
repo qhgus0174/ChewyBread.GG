@@ -1,34 +1,28 @@
 import axios from 'axios';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { ISummoner } from 'riot-api-dto-types';
 
 const Summoner = () => {
     interface RouteParams {
         name: string;
     }
 
-    interface ISummoner {
-        accountId: string;
-        profileIconId: number;
-        revisionDate: number;
-        name: string;
-        id: string;
-        puuid: string;
-        summonerLevel: number;
-    }
-
     const params = useParams<RouteParams>();
 
+    const [leagues, setLeagues] = useState();
+
     useEffect(() => {
-        const getSummonerInfo = async () => {
+        const getLeagueInfo = async () => {
             try {
-                const result = await axios.get(`/userInfo/getSummonerId/${params.name}`);
-                console.log(result);
+                const { data } = await axios.get(`/userInfo/getSummonerId/${params.name}`);
+                console.log(data);
             } catch (e) {
                 console.log((e as Error).message);
             }
         };
-        getSummonerInfo();
+        getLeagueInfo();
     }, []);
 
     return <>안녕{params.name}</>;

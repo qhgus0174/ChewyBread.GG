@@ -2,33 +2,10 @@ import { AxiosResponse } from 'axios';
 import express, { Request, Response } from 'express';
 import reqSender from '../../../utils/reqSender';
 
+import { ISummonerLeague } from 'riot-api-dto-types/dist/league';
+import { ISummonerInfo } from 'riot-api-dto-types/dist/info';
+
 const router = express.Router();
-
-interface ISummonerInfo {
-    id: string;
-    accountId: string;
-    puuid: string;
-    name: string;
-    profileIconId: number;
-    revisionDate: number;
-    summonerLevel: number;
-}
-
-interface ISummonerLeague {
-    leagueId: string;
-    summonerId: string;
-    summonerName: string;
-    queueType: string;
-    tier: string;
-    rank: string;
-    leaguePoints: number;
-    wins: number;
-    losses: number;
-    hotStreak: boolean;
-    veteran: boolean;
-    freshBlood: boolean;
-    inactive: boolean;
-}
 
 const getSummonerInfoByName = async (name: string): Promise<string> => {
     const { data: summonerInfo }: AxiosResponse<ISummonerInfo> = await reqSender({
