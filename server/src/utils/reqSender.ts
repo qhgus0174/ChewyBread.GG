@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
 import config from '../config';
 
 const reqSender: AxiosInstance = axios.create({
@@ -17,15 +17,6 @@ reqSender.interceptors.request.use(
     },
     (error: AxiosError<any>) => {
         Promise.reject(error);
-    },
-);
-
-reqSender.interceptors.response.use(
-    (response: AxiosResponse<any>) => {
-        return response;
-    },
-    (error: AxiosError<any>) => {
-        return Promise.reject(error);
     },
 );
 

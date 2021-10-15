@@ -5,7 +5,7 @@ import routes from './api/routes';
 const app = express();
 
 //라우터
-app.use('/', routes);
+app.use('/api', routes);
 
 app.listen(config.port, () => {
     console.log(`

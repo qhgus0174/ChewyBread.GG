@@ -2,8 +2,10 @@ import express from 'express';
 
 const router = express.Router();
 
-const userInfo = require('./user/userInfo');
+const league = require('./league');
+const mastery = require('./mastery');
 
-router.use('/userInfo', userInfo);
+router.use('/league', league);
+router.use('/championMastery', mastery);
 
 export = router;
