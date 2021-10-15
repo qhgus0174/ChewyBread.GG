@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 import reqSender from '../../../utils/reqSender';
 
 import { IChampionMastery } from 'riot-api-types';
-const getSummonerInfoByName = require('../../../common');
+import { getSummonerInfoByName } from '../../../common/summonerInfo';
 
 const router = express.Router();
 
@@ -19,3 +19,5 @@ router.get('/getChampionMastery/:name', async (req: Request, res: Response) => {
 
     res.send(championMastery);
 });
+
+export = router;

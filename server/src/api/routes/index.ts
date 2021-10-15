@@ -1,9 +1,8 @@
 import express from 'express';
+import league from './league';
+import mastery from './mastery';
 
 const router = express.Router();
-
-const league = require('./league');
-const mastery = require('./mastery');
 
 router.use('/league', league);
 router.use('/championMastery', mastery);

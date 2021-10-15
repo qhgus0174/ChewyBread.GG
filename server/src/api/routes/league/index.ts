@@ -3,8 +3,7 @@ import express, { Request, Response } from 'express';
 import reqSender from '../../../utils/reqSender';
 
 import { ISummonerLeague } from 'riot-api-types';
-
-const getSummonerInfoByName = require('../../../common');
+import { getSummonerInfoByName } from '../../../common/summonerInfo';
 
 const router = express.Router();
 
